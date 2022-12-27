@@ -1,24 +1,31 @@
-$bg11: #ffc900;
+$bg11:linear-gradient(141deg, rgba(41,24,57,1) 0%, rgba(149,77,212,1) 33%, rgba(86,49,120,1) 62%);
 $clr11: #000;
-$bg1: #252525;
+$bg1: linear-gradient(141deg, rgba(41,24,57,1) 0%, rgba(149,77,212,1) 33%, rgba(86,49,120,1) 62%);
 $bg2: #252525;
 $bg3: #252525;
 
 .first{
-  background-color: $bg1;
-  padding: 7rem 7rem 6rem 6rem;
-  border: 2px solid black;
+  background: linear-gradient(141deg, rgba(41,24,57,1) 0%, rgba(149,77,212,1) 33%, rgba(86,49,120,1) 62%);
+  padding: 100px;
+  min-height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 7rem;
+  flex-direction: row;
+  display: flex;
   
-  .nestDiv {
-    border-radius: 3px;
-    background-color: $bg11;
-    color: $clr11;
-    min-height: 80vh;
-    min-width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 2rem;
+  
+  
+  // .nestDiv {
+  //   border-radius: 3px;
+  //   background-color: $bg11;
+  //   color: $clr11;
+  //   min-height: 80vh;
+  //   min-width: 100%;
+  //   display: flex;
+  //   justify-content: space-around;
+  //   align-items: center;
+  //   padding-top: 2rem;
   
     section{
       justify-content: center;
@@ -26,21 +33,23 @@ $bg3: #252525;
       max-width: 40vw;
       
       h1{
-        margin-bottom: 5rem;
-        font-size: 5rem;
+        margin-bottom: 4rem;
+        font-size: 4rem;
+       
       }
       p{
-        font-size: 1.4rem;
+        font-size: 1.5rem;
       }
   
       .btn{
         font-size: 1.5rem;
         background-color: transparent;
         align-self: flex-end;
+        align-items: flex-start;
         padding: 0.4rem 2rem;
         margin: 4rem 4rem 0rem 30vw;
         background-color: black;
-        color: white;
+        color: rgb(253, 250, 250);
         border-radius: 0.1rem;
         border: 2px solid black;
         box-shadow: 5px 5px gray;
@@ -50,7 +59,7 @@ $bg3: #252525;
       }
     }
   }
-}
+// }
 
 .second{
   background-color: $bg2;
