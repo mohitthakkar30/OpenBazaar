@@ -52,7 +52,7 @@ export default function First() {
                         you can sell the digital services you want—books,
                         audio, courses, and more—right to your audience as a digital asset.
                     </p>
-                    <ConnectButton />
+                    {/* <ConnectButton /> */}
                     {/* <Link href="/store">
                         <button className={styles.btn}>Connect</button>
                     </Link> */}
