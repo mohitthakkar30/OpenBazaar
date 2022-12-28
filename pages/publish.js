@@ -6,7 +6,7 @@ import web3modal from "web3modal";
 import Dashboard from "../components/Dashboard";
 import styles from "../styles/dashboard.module.scss";
 import { contractAddress } from "../address.js";
-import Gum3road from "../artifacts/contracts/Gum3road.sol/Gum3road.json";
+import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
 
 export default function Publish() {
     const [formInput, setFormInput] = useState({
@@ -78,13 +78,13 @@ export default function Publish() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
+            OpenBazaar.abi,
             signer
         );
         const url = await metadata();
         const price = ethers.utils.parseEther(formInput.price);
         const supply = formInput.supply;
-        const publish = await contract.createToken(url, supply, price, {
+        const publish = await contract.createAsset(url, supply, price, {
             gasLimit: 1000000,
         });
         await publish.wait();

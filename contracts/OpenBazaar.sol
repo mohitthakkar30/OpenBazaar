@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
 
-contract Gum3road is ERC1155URIStorage, ERC1155Holder {
+contract OpenBazaar is ERC1155Holder, ERC1155URIStorage {
     address payable owner;
 
     constructor() ERC1155("") {
@@ -16,7 +16,7 @@ contract Gum3road is ERC1155URIStorage, ERC1155Holder {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenId;
 
-    struct ebook {
+    struct digitalAsset {
         uint256 tokenId;
         address payable owner;
         address payable creator;
@@ -25,7 +25,7 @@ contract Gum3road is ERC1155URIStorage, ERC1155Holder {
         uint256 supplyleft;
     }
 
-    event ebookCreated(
+    event digitalAssetFormed(
         uint256 indexed tokenId,
         address owner,
         address creator,
@@ -34,7 +34,7 @@ contract Gum3road is ERC1155URIStorage, ERC1155Holder {
         uint256 supplyleft
     );
 
-    mapping(uint256 => ebook) idToEbook;
+    mapping(uint256 => digitalAsset) idtoDigitalAsset;
 
     function supportsInterface(bytes4 interfaceId)
         public
@@ -46,7 +46,7 @@ contract Gum3road is ERC1155URIStorage, ERC1155Holder {
         return super.supportsInterface(interfaceId);
     }
 
-    function createToken(
+    function createAsset(
         string memory tokenURI,
         uint256 supply,
         uint256 price
@@ -55,15 +55,15 @@ contract Gum3road is ERC1155URIStorage, ERC1155Holder {
         uint256 currentToken = _tokenId.current();
         _mint(msg.sender, currentToken, supply, "");
         _setURI(currentToken, tokenURI);
-        createEbook(currentToken, supply, price);
+        createDigitalAsset(currentToken, supply, price);
     }
 
-    function createEbook(
+    function createDigitalAsset(
         uint256 tokenId,
         uint256 supply,
         uint256 price
     ) private {
-        idToEbook[tokenId] = ebook(
+        idtoDigitalAsset[tokenId] = digitalAsset(
             tokenId,
             payable(address(this)),
             payable(msg.sender),
@@ -74,7 +74,7 @@ contract Gum3road is ERC1155URIStorage, ERC1155Holder {
 
         _safeTransferFrom(msg.sender, address(this), tokenId, supply, "");
 
-        emit ebookCreated(
+        emit digitalAssetFormed(
             tokenId,
             address(this),
             msg.sender,
@@ -84,59 +84,59 @@ contract Gum3road is ERC1155URIStorage, ERC1155Holder {
         );
     }
 
-    function buy(uint256 tokenId) public payable {
-        uint256 price = idToEbook[tokenId].price;
+    function buyDigitalAsset(uint256 tokenId) public payable {
+        uint256 price = idtoDigitalAsset[tokenId].price;
         require(msg.value == price);
-        require(idToEbook[tokenId].supplyleft >= idToEbook[tokenId].supply);
-        idToEbook[tokenId].owner = payable(msg.sender);
-        idToEbook[tokenId].supplyleft--;
+        require(idtoDigitalAsset[tokenId].supplyleft >= idtoDigitalAsset[tokenId].supply);
+        idtoDigitalAsset[tokenId].owner = payable(msg.sender);
+        idtoDigitalAsset[tokenId].supplyleft--;
 
         _safeTransferFrom(address(this), msg.sender, tokenId, 1, "");
 
         uint256 fee = price/100;
         uint256 remaining = price - fee;
 
-        payable(idToEbook[tokenId].creator).transfer(remaining);
+        payable(idtoDigitalAsset[tokenId].creator).transfer(remaining);
         payable(owner).transfer(fee);
     }
 
-    function fetchStore() public view returns (ebook[] memory) {
+    function getStore() public view returns (digitalAsset[] memory) {
         uint counter = 0;
         uint length;
 
         for (uint i = 0; i < _tokenId.current(); i++) {
-            if (idToEbook[i+1].supplyleft > 0) {
+            if (idtoDigitalAsset[i+1].supplyleft > 0) {
                 length++;
             }
         }
 
-        ebook[] memory unsoldBooks = new ebook[](length);
+        digitalAsset[] memory unsoldDigitalAssets = new digitalAsset[](length);
         for (uint i = 0; i < _tokenId.current(); i++) {
-            if (idToEbook[i+1].supplyleft > 0) {
+            if (idtoDigitalAsset[i+1].supplyleft > 0) {
                 uint currentId = i+1;
-                ebook storage currentItem = idToEbook[currentId];
-                unsoldBooks[counter] = currentItem;
+                digitalAsset storage currentItem = idtoDigitalAsset[currentId];
+                unsoldDigitalAssets[counter] = currentItem;
                 counter++;
             }
         }
-        return unsoldBooks;
+        return unsoldDigitalAssets;
     }
 
-    function fetchInventory() public view returns (ebook[] memory) {
+    function getInventory() public view returns (digitalAsset[] memory) {
             uint counter = 0;
             uint length ;
 
             for (uint i = 0; i < _tokenId.current(); i++) {
-                if (idToEbook[i+1].owner == msg.sender) {
+                if (idtoDigitalAsset[i+1].owner == msg.sender) {
                     length++;
                 }
             }
 
-            ebook[] memory myBooks = new ebook[](length);
+            digitalAsset[] memory myBooks = new digitalAsset[](length);
             for (uint i = 0; i < _tokenId.current(); i++) {
-                if (idToEbook[i+1].owner == msg.sender) {
+                if (idtoDigitalAsset[i+1].owner == msg.sender) {
                     uint currentId = i+1;
-                    ebook storage currentItem = idToEbook[currentId];
+                    digitalAsset storage currentItem = idtoDigitalAsset[currentId];
                     myBooks[counter] = currentItem;
                     counter++;
                 }
@@ -144,26 +144,26 @@ contract Gum3road is ERC1155URIStorage, ERC1155Holder {
             return myBooks;
     }
 
-    function fetchMyListings() public view returns (ebook[] memory) {
+    function getListings() public view returns (digitalAsset[] memory) {
         uint counter = 0;
         uint length;
 
         for (uint i = 0; i < _tokenId.current(); i++) {
-            if (idToEbook[i+1].creator == msg.sender) {
+            if (idtoDigitalAsset[i+1].creator == msg.sender) {
                 length++;
             }
         }
 
-        ebook[] memory myListedBooks = new ebook[](length);
+        digitalAsset[] memory listedDigitalAssets = new digitalAsset[](length);
         for (uint i = 0; i < _tokenId.current(); i++) {
-            if (idToEbook[i+1].creator == msg.sender) {
+            if (idtoDigitalAsset[i+1].creator == msg.sender) {
                 uint currentId = i+1;
-                ebook storage currentItem = idToEbook[currentId];
-                myListedBooks[counter] = currentItem;
+                digitalAsset storage currentItem = idtoDigitalAsset[currentId];
+                listedDigitalAssets[counter] = currentItem;
                 counter++;
             }
         }
-        return myListedBooks;
+        return listedDigitalAssets;
     }
 }
 
