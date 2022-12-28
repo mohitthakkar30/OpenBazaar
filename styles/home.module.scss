@@ -16,16 +16,7 @@ $bg3: #252525;
   
   
   
-  // .nestDiv {
-  //   border-radius: 3px;
-  //   background-color: $bg11;
-  //   color: $clr11;
-  //   min-height: 80vh;
-  //   min-width: 100%;
-  //   display: flex;
-  //   justify-content: space-around;
-  //   align-items: center;
-  //   padding-top: 2rem;
+  
   
     section{
       justify-content: center;
@@ -42,20 +33,10 @@ $bg3: #252525;
       }
   
       .btn{
-        font-size: 1.5rem;
-        background-color: transparent;
-        align-self: flex-end;
-        align-items: flex-start;
-        padding: 0.4rem 2rem;
-        margin: 4rem 4rem 0rem 30vw;
-        background-color: black;
-        color: rgb(253, 250, 250);
-        border-radius: 0.1rem;
-        border: 2px solid black;
-        box-shadow: 5px 5px gray;
-        &:hover{
-          transition: all .3s ease;
-        }
+
+        font-size: 1rem;
+        margin: 2rem 2rem 0rem 5vw;
+
       }
     }
   }
