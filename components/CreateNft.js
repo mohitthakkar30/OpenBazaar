@@ -3,37 +3,31 @@ const ipfsClient = require("ipfs-http-client");
 import { useRouter } from "next/router";
 import { useState } from "react";
 import web3modal from "web3modal";
-import Dashboard from "../components/Dashboard";
 import styles from "../styles/dashboard.module.scss";
 import { contractAddress } from "../address.js";
 import Gum3road from "../Gum3road.json";
-import Listing from "./listings"
-import React, { useContext } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import {
-    Button,
-    Center,
-    Container,
-    Text,
-    VStack,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-    useDisclosure,
-  } from '@chakra-ui/react';
-  import 'bootstrap/dist/css/bootstrap.min.css'
-  import { Alert } from '@coreui/bootstrap-react';
-  import { CContainer, CRow, CCol } from '@coreui/bootstrap-react'
-  import CreateNft from "../components/CreateNft"
+  Center,
+  FormLabel,
+  FormControl,
+  Input,
+  Button,
+  Container,
+  HStack,
+  InputGroup,
+  InputRightAddon,
+  Select,
+  Textarea,
+  Flex,
+  Text,
+  Image,
+  useDisclosure,
+} from '@chakra-ui/react';
+// import { MdCloudUpload } from 'react-icons/md';
 
 
-
-
-export default function Publish() {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+export default function CreateNft() {
     const [formInput, setFormInput] = useState({
         name: "",
         price: "",
@@ -103,7 +97,7 @@ export default function Publish() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
+            Gum3road,
             signer
         );
         const url = await metadata();
@@ -123,10 +117,10 @@ export default function Publish() {
     return (
         <>
             <div className={styles.container}>
-                
-                <div className={styles.publish}>
-                
-                    {/* <form>
+                <div className={styles.CreateNft}>
+                    <form>
+                    <container  maxW='full' pb='1.2rem' display='flex' 
+                      alignItems={'start'} justifyContent='space-between'flexDir={'column'} gap='1rem'>
                         <label>Item Name</label>
                         <input
                             name="name"
@@ -182,37 +176,11 @@ export default function Publish() {
                             value="Mint🚀"
                             onClick={uploadToIpfs}
                         />
-                    </form> */}
-                    <CContainer>
-                            <CRow className={styles.row}>
-                            <CCol><h3 style={{color:"black"}}>Created NFTs</h3></CCol>
-                            <div className={styles.vertical}></div>
-                            <CCol><h3 style={{color:"black"}}>Bought NFTs</h3></CCol>
-                            </CRow>
-                            <CRow className={styles.row}>
-                            <CCol><Listing/>
-                            <Container py='6rem' pr='10rem' maxW='full'>
-                                <Modal size={'1xl'} isOpen={isOpen} onClose={onClose}>
-                                    <ModalOverlay />
-                                    <ModalContent rounded='3xl'>
-                                        <ModalHeader color='black'>Create NFT</ModalHeader>
-                                        <ModalCloseButton color='black' />
-                                        <ModalBody>
-                                            <CreateNft />
-                                        </ModalBody>
-                                    </ModalContent>
-                                </Modal>
-                                    <Center gap='2rem' flexDir={'column'} mx={'auto'}>
-                                        <Button type="button" class="btn btn-primary" onClick={onOpen}>Create NFT</Button>
-                                    </Center>
-                            </Container>
-                            </CCol>
-                            <div className={styles.vertical}></div>
-                            <CCol><Listing/></CCol>
-                            </CRow>
-                    </CContainer>
+                        </container>
+                    </form>
 
                 </div>
             </div>
-        </>);
+        </>
+    );
 }

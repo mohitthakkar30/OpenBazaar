@@ -7,9 +7,6 @@ export default function Home() {
     return(
         <div>
             <First />
-            <Second />
-            <Third />
-            <Footer />
         </div>
     )
 }

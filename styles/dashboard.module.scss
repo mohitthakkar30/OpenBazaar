@@ -6,7 +6,7 @@ $cardClr: #000;
 .container{
     display: flex;
     flex-direction: row;
-    min-height: 100vh;
+    min-height: 49vh;
 }
 .dashboard{
     background-color: $Bg;
@@ -36,17 +36,26 @@ $cardClr: #000;
     }
 }
 
-.publish, .pageDiv{
+.publish{
+    background: linear-gradient(141deg, rgba(41,24,57,1) 0%,
+     rgba(149,77,212,1) 33%,
+      rgba(86,49,120,1)
+      62%);
     background-color: $Bg;
     color: white;
     flex: 1;
     padding-top: 14vh;
 }
 
-.publish{
-    padding-top: 18vh;
+.pageDiv{
+    color: white;
+    flex: 1;
+    padding-top: 10vh;
+}
+.CreateNft{
     display: flex;
     flex-wrap: wrap;
+    flex: 1;
     
     form{
         font-size: 0.8rem;
@@ -194,3 +203,13 @@ $cardClr: #000;
 .active{
     color: $clr1;
   }
+
+.row{
+    text-align: center !important;
+}
+.vertical {
+    border-left: 2px solid rgb(94, 50, 75);
+    height: 400px;
+    position:absolute;
+    left: 50%;
+}
