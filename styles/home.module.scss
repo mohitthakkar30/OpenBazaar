@@ -1,5 +1,5 @@
 $bg11:linear-gradient(141deg, rgba(41,24,57,1) 0%, rgba(149,77,212,1) 33%, rgba(86,49,120,1) 62%);
-$clr11: #000;
+// $clr11: #000;
 $bg1: linear-gradient(141deg, rgba(41,24,57,1) 0%, rgba(149,77,212,1) 33%, rgba(86,49,120,1) 62%);
 $bg2: #252525;
 $bg3: #252525;
@@ -14,20 +14,16 @@ $bg3: #252525;
   flex-direction: row;
   display: flex;
   
-  
-  
-  
+
   
     section{
       justify-content: center;
       align-items: center;
       max-width: 40vw;
       
-      h1{
-        margin-bottom: 4rem;
-        font-size: 4rem;
-       
-      }
+     
+
+
       p{
         font-size: 1.5rem;
       }
