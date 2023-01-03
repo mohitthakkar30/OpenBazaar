@@ -59,9 +59,9 @@ export default function First() {
           <section>
             <h1 class="linear-wipe">OPENBAZZAR</h1>
             <p>
-              A place where you can mint any file as ERC1155 nft. Now you can
-              sell the digital services you want—books, audio, courses, and
-              more—right to your audience as a digital asset.
+            OpenBazaar is a decentralized, peer-to-peer marketplace that enables users to buy and 
+            sell goods and services directly with one another without the need for intermediaries 
+            or fees.
             </p>
             <div
               className={styles.btn}
