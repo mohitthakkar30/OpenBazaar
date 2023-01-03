@@ -10,11 +10,9 @@ export default function Navbar() {
     return (
         <div className={styles.nav}>
             <div className={styles.logo}>
-                <Link href="/">
-                    <h2>Gum3road</h2>
-                </Link>
+                {/* <Image src="/logo.png" width={400} height={400} alt="" /> */}
             </div>
-            <div className={styles.rightDiv}>
+            {/* <div className={styles.rightDiv}>
                 <Link href="/store">
                     <a className={
                             currentRoute === "/store" ? styles.active : ""
@@ -30,7 +28,8 @@ export default function Navbar() {
                     >
                         <h3>Dashboard</h3>
                     </a>
-                </Link>
+                </Link> */}
+                <div>
                 <Login />
             </div>
         </div>

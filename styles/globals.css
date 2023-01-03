@@ -5,52 +5,10 @@ body {
 }
 h1, h2, h3{
 font-family: 'Helvetica Neue', sans-serif;
-}
-/* body { 
-  background: #333; 
-  text-align: center;
-  min-height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-h1{
-  margin-bottom: 4rem;
-  font-size: 4rem;
-}
-.linear-wipe {
-  text-align: center;
-  
-  background: linear-gradient(to right, #FFF 10%, rgb(0, 0, 0) 30%, rgb(8, 8, 8) 60%, rgb(175, 172, 172) 60%);
-  background-size: 200% auto;
-  
-  color: #000;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  
-  animation: shine 3s linear infinite;
-  @keyframes shine { 
-    to {
-      background-position: 200% center;
-    }
-  }
-}
 
-a {
-  color: inherit;
-  text-decoration: none;
 }
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-@media only screen and (max-width: 600px){
-  *{
-    display: none;
-  }
 }

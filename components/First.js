@@ -45,11 +45,10 @@ export default function First() {
   useEffect(() => {
     console.log("useeffect===============>");
     if (address) {
-      // router.push("/dashboard");
+      router.push("/dashboard");
+      localStorage.clear();
     }
-    // else (isDisconnected) {
-    //   router.push("/");
-    // }
+ 
   }, [address]);
   return (
     <WagmiConfig client={wagmiClient}>
@@ -57,7 +56,7 @@ export default function First() {
         <div className={styles.first}>
           {/* <div className={styles.nestDiv}> */}
           <section>
-            <h1 class="linear-wipe">OPENBAZZAR</h1>
+            <h1 class="linear-wipe">OPENBAZAAR</h1>
             <p>
             OpenBazaar is a decentralized, peer-to-peer marketplace that enables users to buy and 
             sell goods and services directly with one another without the need for intermediaries 

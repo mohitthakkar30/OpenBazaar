@@ -1,14 +1,15 @@
 import styles from "../styles/dashboard.module.scss";
 import Link from "next/link";
-import { useRouter } from "next/router";
-
+import React from "react";
 export default function Dashboard() {
-    const router = useRouter();
-    const currentRoute = router.pathname;
-
     return (
+    
         <>
-            <div className={styles.dashboard}>
+        <div className={styles.dashboard}>
+            <h1>Dashboard</h1>
+            </div>
+       
+            {/* <div className={styles.dashboard}>
                 <div className={styles.btngrp}>
                     <Link href="/publish">
                         <a
@@ -38,7 +39,7 @@ export default function Dashboard() {
                         </a>
                     </Link>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }
