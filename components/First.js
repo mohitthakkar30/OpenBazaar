@@ -45,7 +45,7 @@ export default function First() {
   useEffect(() => {
     console.log("useeffect===============>");
     if (address) {
-      router.push("/dashboard");
+      // router.push("/dashboard");
     }
     // else (isDisconnected) {
     //   router.push("/");
