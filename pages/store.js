@@ -4,7 +4,9 @@ import web3modal from "web3modal";
 import { ethers } from "ethers";
 import axios from "axios";
 import { contractAddress } from "../address.js";
-import Gum3road from "../artifacts/contracts/Gum3road.sol/Gum3road.json";
+import Gum3road from "../Gum3road.json";
+// import NFTCard from "../components/NFTCard";
+
 
 export default function Store() {
     const [items, setItems] = useState([]);
@@ -20,7 +22,7 @@ export default function Store() {
         const provider = new ethers.providers.Web3Provider(connection);
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
+            Gum3road,
             provider
         );
         const data = await contract.fetchStore();
@@ -56,7 +58,7 @@ export default function Store() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
+            Gum3road,
             signer
         );
         const price = ethers.utils.parseUnits(item.price.toString(), "ether");
@@ -114,6 +116,7 @@ export default function Store() {
                         />
                     ))}
                 </div>
+                {/* <NFTCard/> */}
             </div>
         </>
     );

@@ -6,8 +6,8 @@ import { ethers } from "ethers";
 import axios from "axios";
 import { contractAddress } from "../address.js";
 import { saveAs } from "file-saver";
-import Gum3road from "../artifacts/contracts/Gum3road.sol/Gum3road.json";
-import file from "@babel/core/lib/transformation/file/file";
+import Gum3road from "../Gum3road.json";
+
 
 export default function Inventory() {
     const [myItems, setMyItems] = useState([]);
@@ -27,7 +27,7 @@ export default function Inventory() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
+            Gum3road,
             signer
         );
         const data = await contract.fetchInventory();
@@ -84,7 +84,6 @@ export default function Inventory() {
     return (
         <>
             <div className={styles.container}>
-                <Dashboard />
                 <div className={styles.pageDiv}>
                     <div className={styles.headDiv}>
                         <h2>You own {myItems.length} Nft</h2>

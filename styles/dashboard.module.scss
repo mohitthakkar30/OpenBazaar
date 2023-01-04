@@ -45,7 +45,10 @@ $cardClr: #000;
     color: white;
     flex: 1;
     padding-top: 14vh;
+
 }
+
+
 
 .pageDiv{
     color: white;
@@ -59,7 +62,7 @@ $cardClr: #000;
     
     form{
         font-size: 0.8rem;
-        width: 45%;
+        width: 32%;
         height: 90%;
         background-color:white;
         border: 1px solid #dedede;
@@ -68,10 +71,13 @@ $cardClr: #000;
         flex-direction: column;
         justify-content: space-around;
         margin: 0 auto;
-        padding: 1.4rem 6%;
+        padding: 1.4rem 3%;
         padding-bottom: 1.2rem;
         border: 2px solid black;
         box-shadow: 5px 5px gray;
+        margin-top: 70px;
+        filter: blur(0px);
+        
 
         input, select{
             color: grey;
@@ -213,3 +219,11 @@ $cardClr: #000;
     position:absolute;
     left: 50%;
 }
+.modal {
+    margin-top: 70px;
+}
+
+.is-blurred {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+  }

@@ -8,6 +8,7 @@ import styles from "../styles/dashboard.module.scss";
 import { contractAddress } from "../address.js";
 import Gum3road from "../Gum3road.json";
 import Listing from "./listings"
+import Inventory from "./inventory";
 import React, { useContext } from 'react';
 import {
     Button,
@@ -119,6 +120,10 @@ export default function Publish() {
         router.push("/store");
     }
 
+    function redirect(){
+        router.push("/store");
+    }
+
 
     return (
         <>
@@ -191,8 +196,8 @@ export default function Publish() {
                             </CRow>
                             <CRow className={styles.row}>
                             <CCol><Listing/>
-                            <Container py='6rem' pr='10rem' maxW='full'>
-                                <Modal size={'1xl'} isOpen={isOpen} onClose={onClose}>
+                            <Container className={styles.modal} py='6rem' pr='10rem' maxW='full'>
+                                <Modal size={'3xl'} isOpen={isOpen} onClose={onClose}>
                                     <ModalOverlay />
                                     <ModalContent rounded='3xl'>
                                         <ModalHeader color='black'>Create NFT</ModalHeader>
@@ -208,7 +213,11 @@ export default function Publish() {
                             </Container>
                             </CCol>
                             <div className={styles.vertical}></div>
-                            <CCol><Listing/></CCol>
+                            <CCol><Inventory/>
+                            <Center gap='2rem' flexDir={'column'} mx={'auto'}>
+                                        <Button type="button" class="btn btn-primary" onClick={redirect}>Store</Button>
+                                    </Center>
+                            </CCol>
                             </CRow>
                     </CContainer>
 

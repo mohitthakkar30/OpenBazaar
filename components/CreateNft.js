@@ -28,6 +28,7 @@ import {
 
 
 export default function CreateNft() {
+    const [form, setForm] = useState(false);
     const [formInput, setFormInput] = useState({
         name: "",
         price: "",
@@ -120,8 +121,21 @@ export default function CreateNft() {
                 <div className={styles.CreateNft}>
                     <form>
                     <container  maxW='full' pb='1.2rem' display='flex' 
-                      alignItems={'start'} justifyContent='space-between'flexDir={'column'} gap='1rem'>
-                        <label>Item Name</label>
+                      alignItems={'start'} justifyContent='space-between'flexDir={'column'} gap='1rem' styles={{}}>
+                       <FormControl isRequired>
+                        <FormLabel>Item Name</FormLabel>
+                        <Input placeholder='Item Name' name="name" _placeholder={{ color: 'inherit' }}
+
+                            required
+                            onChange={(e) =>
+                                setFormInput({
+                                    ...formInput,
+                                    name: e.target.value,
+                                })
+                            } />
+                        </FormControl>
+                       
+                        {/* <label>Item Name</label>
                         <input
                             name="name"
                             required
@@ -131,7 +145,7 @@ export default function CreateNft() {
                                     name: e.target.value,
                                 })
                             }
-                        />
+                        /> */}
                         <label>Price</label>
                         <input
                             name="price"
@@ -168,7 +182,19 @@ export default function CreateNft() {
                             type="file"
                             name="file"
                             required
+                            h='8rem'
+                            opacity={'0'}
+                            display={'flex'}
+                            alignItems='center'
+                            justifyContent={'center'}
+                            background={'blackAlpha.200'}
                             onChange={handleFile}
+                        />
+                        <input
+                            type="submit"
+                            className={styles.submitbtn}
+                            value="Cancel"
+                            onClick={() => setForm(false)}
                         />
                         <input
                             type="submit"
