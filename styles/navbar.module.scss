@@ -1,11 +1,11 @@
 .nav{
-    background-color: black;
-    color: white;
-    height: 10vh;
+  // background-color:gray;
+    color: rgb(10, 10, 10);
+    height: 12vh;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display:flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0rem 4rem;
     z-index: 999;
     position: fixed;
@@ -20,6 +20,21 @@
     .address{
       display: none;
     }
+   
+  }
+  .align {
+    margin-left: 40% !important;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    justify-content: space-between;
+    align-items: center; 
+  }
+  .active{
+        color: black;
+      }
+  .col{
+    color: black;
   }
 
   
@@ -30,6 +45,10 @@
   }
 }
 
+
 .logo{
-  color: #6976d9;
+  width: auto;
+  margin-top:2vh;
+
+  
 }

@@ -1,56 +1,67 @@
-$bg11: #ffc900;
-$clr11: #000;
-$bg1: #252525;
+$bg11:linear-gradient(141deg, rgba(41,24,57,1) 0%, rgba(149,77,212,1) 33%, rgba(86,49,120,1) 62%);
+// $clr11: #000;
+$bg1: linear-gradient(141deg, rgba(41,24,57,1) 0%, rgba(149,77,212,1) 33%, rgba(86,49,120,1) 62%);
 $bg2: #252525;
 $bg3: #252525;
 
 .first{
-  background-color: $bg1;
-  padding: 7rem 7rem 6rem 6rem;
-  border: 2px solid black;
-  
-  .nestDiv {
-    border-radius: 3px;
-    background-color: $bg11;
-    color: $clr11;
-    min-height: 80vh;
-    min-width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 2rem;
+  background: linear-gradient(141deg, rgba(41,24,57,1) 0%, rgba(149,77,212,1) 33%, rgba(86,49,120,1) 62%);
+  padding: 100px;
+  min-height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 7rem;
+  flex-direction: row;
+  display: flex;
   
     section{
       justify-content: center;
       align-items: center;
       max-width: 40vw;
-      
-      h1{
-        margin-bottom: 5rem;
-        font-size: 5rem;
-      }
       p{
-        font-size: 1.4rem;
+        font-size: 1.5rem;
+        justify-content:center;
+        text-align:justify;
+      }
+   
+      h1 {
+        color: hsl(0, 0%, 28%);
+        font-size: 50px;
+        font-weight: bold;
+        font-family: monospace;
+        letter-spacing: 7px;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+      h1 {
+        padding: 64px;
+        background: linear-gradient(to right, hsl(0, 0%, 3%) 0, hsla(0, 0%, 100%, 0.637) 10%, hsl(0, 0%, 5%) 20%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3s infinite linear;
+      }
+      
+      @keyframes shine {
+        0% {
+          background-position: 0;
+        }
+        60% {
+          background-position: 600px;
+        }
+        100% {
+          background-position: 600px;
+        }
       }
   
       .btn{
-        font-size: 1.5rem;
-        background-color: transparent;
-        align-self: flex-end;
-        padding: 0.4rem 2rem;
-        margin: 4rem 4rem 0rem 30vw;
-        background-color: black;
-        color: white;
-        border-radius: 0.1rem;
-        border: 2px solid black;
-        box-shadow: 5px 5px gray;
-        &:hover{
-          transition: all .3s ease;
-        }
+
+        font-size: 1rem;
+        margin: 2rem 2rem 0rem 5vw;
+
       }
     }
   }
-}
+// }
 
 .second{
   background-color: $bg2;

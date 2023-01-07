@@ -1,5 +1,5 @@
 import Dashboard from "../components/Dashboard";
-import styles from "../styles/dashboard.module.scss";
+import styles from "../styles/Inventory.module.scss";
 import { useEffect, useState } from "react";
 import web3modal from "web3modal";
 import { ethers } from "ethers";
@@ -8,6 +8,9 @@ import { contractAddress } from "../address.js";
 import { saveAs } from "file-saver";
 import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
 import file from "@babel/core/lib/transformation/file/file";
+import { Container, Row, Col } from "reactstrap";
+import InventoryNftCard from '../components/InventoryNftCard'
+import { NFT__DATA } from "../assets/data/data";
 
 
 export default function Inventory() {
@@ -80,7 +83,7 @@ export default function Inventory() {
     }
 
     return (
-        <React.Fragment>
+        <>
             <section className={styles.trending__title}>
                 <Container>
                     <Row>
@@ -93,6 +96,6 @@ export default function Inventory() {
                     </Row>
                 </Container>
             </section>
-        </React.Fragment>
+        </>
     );
 }
