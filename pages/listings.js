@@ -1,4 +1,3 @@
-import Dashboard from "../components/Dashboard";
 import styles from "../styles/dashboard.module.scss";
 import { useEffect, useState } from "react";
 import web3modal from "web3modal";

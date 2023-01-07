@@ -46,7 +46,7 @@ const InventoryNftCard = (props) => {
           <button
             className={styles.placebidbtn}
             onClick={() => setShowModal(true)}
-          >Place Bid
+          >Sell
           </button>
 
           {showModal && <Modal setShowModal={setShowModal} />}

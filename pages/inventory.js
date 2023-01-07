@@ -1,5 +1,4 @@
-import Dashboard from "../components/Dashboard";
-import styles from "../styles/Inventory.module.scss";
+import styles from "../styles/Inventory.module.css";
 import { useEffect, useState } from "react";
 import web3modal from "web3modal";
 import { ethers } from "ethers";

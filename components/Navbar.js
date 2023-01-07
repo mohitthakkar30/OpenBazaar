@@ -46,7 +46,7 @@ export default function Navbar() {
   useEffect(() => {
     console.log("useeffect===============>");
     if (address) {
-      router.push("/dashboard");
+      router.push("/publish");
       localStorage.clear();
     }
   }, [address]);
