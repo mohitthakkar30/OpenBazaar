@@ -193,14 +193,14 @@ export default function CreateNft() {
                         <input
                             type="submit"
                             className={styles.submitbtn}
-                            value="Cancel"
-                            onClick={() => setForm(false)}
+                            value="Mint"
+                            onClick={uploadToIpfs}
                         />
-                        <input
+                         <input
                             type="submit"
                             className={styles.submitbtn}
-                            value="Mint🚀"
-                            onClick={uploadToIpfs}
+                            value="Cancel"
+                            onClick={() => false}
                         />
                         </container>
                     </form>

@@ -29,11 +29,13 @@ import {
   import { Alert } from '@coreui/bootstrap-react';
   import { CContainer, CRow, CCol } from '@coreui/bootstrap-react'
   import CreateNft from "../components/CreateNft"
+  import pkg from 'framesync';
 
 
 
 
 export default function Publish() {
+    const { cancelSync, getFrameData } = pkg;
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [formInput, setFormInput] = useState({
         name: "",
@@ -104,7 +106,7 @@ export default function Publish() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
+            Gum3road,
             signer
         );
         const url = await metadata();
@@ -189,14 +191,14 @@ export default function Publish() {
                         />
                     </form> */}
                     <CContainer>
-                            <CRow className={styles.row}>
-                            <CCol><h3 style={{color:"black"}}>Created NFTs</h3></CCol>
-                            <div className={styles.vertical}></div>
-                            <CCol><h3 style={{color:"black"}}>Bought NFTs</h3></CCol>
-                            </CRow>
-                            <CRow className={styles.row}>
-                            <CCol><Listing/>
-                            <Container className={styles.modal} py='6rem' pr='10rem' maxW='full'>
+                        <CRow className={styles.row}>
+                        <CCol><h3 style={{color:"black"}}>Created NFTs</h3></CCol>
+                        <div className={styles.vertical}></div>
+                        <CCol><h3 style={{color:"black"}}>Bought NFTs</h3></CCol>
+                        </CRow>
+                        <CRow className={styles.row}>
+                        <CCol><Listing/>
+                        <Container className={styles.modal} py='6rem' pr='10rem' maxW='full'>
                                 <Modal size={'3xl'} isOpen={isOpen} onClose={onClose}>
                                     <ModalOverlay />
                                     <ModalContent rounded='3xl'>
@@ -214,8 +216,8 @@ export default function Publish() {
                             </CCol>
                             <div className={styles.vertical}></div>
                             <CCol><Inventory/>
-                            <Center gap='2rem' flexDir={'column'} mx={'auto'}>
-                                        <Button type="button" class="btn btn-primary" onClick={redirect}>Store</Button>
+                            <Center gap='2rem' flexDir={'column'} mx={'auto'} mt='25%'>
+                                        <Button type="button" style={{width:'17%'}} class="btn btn-primary" onClick={redirect}>Store</Button>
                                     </Center>
                             </CCol>
                             </CRow>
