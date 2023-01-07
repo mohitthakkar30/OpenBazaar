@@ -7,6 +7,7 @@ import Dashboard from "../components/Dashboard";
 import styles from "../styles/dashboard.module.scss";
 import { contractAddress } from "../address.js";
 import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
+
 import Listing from "./listings"
 import Inventory from "./inventory";
 import React, { useContext } from 'react';
@@ -30,8 +31,6 @@ import {
   import { CContainer, CRow, CCol } from '@coreui/bootstrap-react'
   import CreateNft from "../components/CreateNft"
   import pkg from 'framesync';
-
-
 
 
 export default function Publish() {
@@ -112,7 +111,7 @@ export default function Publish() {
         const url = await metadata();
         const price = ethers.utils.parseEther(formInput.price);
         const supply = formInput.supply;
-        const publish = await contract.createToken(url, supply, price, {
+        const publish = await contract.createAsset(url, supply, price, {
             gasLimit: 1000000,
         });
         await publish.wait();

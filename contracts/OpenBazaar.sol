@@ -165,4 +165,6 @@ contract OpenBazaar is ERC1155Holder, ERC1155URIStorage {
         }
         return listedDigitalAssets;
     }
+
 }
+

@@ -1,11 +1,13 @@
-/* eslint-disable @next/next/no-img-element */
-import styles from "../styles/Inventory.module.css";
-import React, { useEffect, useState } from "react";
-
-import InventoryNftCard from "../components/InventoryNftCard"
-import { NFT__DATA } from "../assets/data/data";
-import { Container, Row, Col } from "reactstrap";
-import "bootstrap"
+import Dashboard from "../components/Dashboard";
+import styles from "../styles/dashboard.module.scss";
+import { useEffect, useState } from "react";
+import web3modal from "web3modal";
+import { ethers } from "ethers";
+import axios from "axios";
+import { contractAddress } from "../address.js";
+import { saveAs } from "file-saver";
+import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
+import file from "@babel/core/lib/transformation/file/file";
 
 
 export default function Inventory() {
@@ -25,7 +27,6 @@ export default function Inventory() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
             OpenBazaar.abi,
             signer
         );
