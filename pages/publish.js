@@ -6,7 +6,7 @@ import web3modal from "web3modal";
 import Dashboard from "../components/Dashboard";
 import styles from "../styles/dashboard.module.scss";
 import { contractAddress } from "../address.js";
-import Gum3road from "../Gum3road.json";
+import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
 import Listing from "./listings"
 import Inventory from "./inventory";
 import React, { useContext } from 'react';
@@ -106,7 +106,7 @@ export default function Publish() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road,
+            OpenBazaar.abi,
             signer
         );
         const url = await metadata();
@@ -129,67 +129,8 @@ export default function Publish() {
 
     return (
         <>
-            <div className={styles.container}>
-                
+            <div className={styles.container}> 
                 <div className={styles.publish}>
-                
-                    {/* <form>
-                        <label>Item Name</label>
-                        <input
-                            name="name"
-                            required
-                            onChange={(e) =>
-                                setFormInput({
-                                    ...formInput,
-                                    name: e.target.value,
-                                })
-                            }
-                        />
-                        <label>Price</label>
-                        <input
-                            name="price"
-                            placeholder="Matic"
-                            required
-                            onChange={(e) =>
-                                setFormInput({
-                                    ...formInput,
-                                    price: e.target.value,
-                                })
-                            }
-                        />
-                        <label>Copies</label>
-                        <input
-                            name="supply"
-                            placeholder="10"
-                            required
-                            onChange={(e) =>
-                                setFormInput({
-                                    ...formInput,
-                                    supply: e.target.value,
-                                })
-                            }
-                        />
-                        <label>Cover image</label>
-                        <input
-                            type="file"
-                            name="cover"
-                            required
-                            onChange={handleFile}
-                        />
-                        <label>Upload file</label>
-                        <input
-                            type="file"
-                            name="file"
-                            required
-                            onChange={handleFile}
-                        />
-                        <input
-                            type="submit"
-                            className={styles.submitbtn}
-                            value="Mint🚀"
-                            onClick={uploadToIpfs}
-                        />
-                    </form> */}
                     <CContainer>
                         <CRow className={styles.row}>
                         <CCol><h3 style={{color:"black"}}>Created NFTs</h3></CCol>

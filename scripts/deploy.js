@@ -2,11 +2,11 @@ const hre = require('hardhat')
 const fs = require('fs');
 
 async function main() {
-  const Gum3road = await hre.ethers.getContractFactory('Gum3road');
-  const deploy = await Gum3road.deploy();
+  const OpenBazaar = await hre.ethers.getContractFactory('OpenBazaar');
+  const deploy = await OpenBazaar.deploy();
   await deploy.deployed();
 
-  console.log("contract deployed to: ", deploy.address);
+  console.log("OpenBazaar Contract deployed to: ", deploy.address);
 
   fs.writeFileSync("./address.js", `export const contractAddress = "${deploy.address}"`)
 }
