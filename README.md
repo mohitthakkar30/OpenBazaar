@@ -1,4 +1,4 @@
-# Gum3Road
+# OpenBazaar
 This is a decentralized version of the [Gumroad.com](https://gumroad.com/). This is where users can login using their wallets. They can mint any file as ERC1155 token and set its attributes like supply, price, cover image. These files are then available for purchase by other users.
 
 <br/>
