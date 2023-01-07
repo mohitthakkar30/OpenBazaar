@@ -57,17 +57,16 @@ export default function Navbar() {
           <div className={styles.logo}>
             <Image src="/logo.png" width={150} height={150} alt="" />
           </div>
-          {/* <div className={styles.store}> */}
-          <Link href="/store">
-            <a className={currentRoute === "/store" ? styles.active : ""}>
-              <h3 className={styles.col}>Store</h3>
-            </a>
-          </Link>
-          <Link href="/publish">
-            <a className={currentRoute === "/publish" ? styles.active : ""}>
-              <h3 className={styles.col}>Dashboard</h3>
-            </a>
-          </Link>
+            <Link href="/store">
+              <a className={currentRoute === "/store" ? styles.active : ""} style={{marginLeft:"40%"}} >
+                <h3 className={styles.col}>Store</h3>
+              </a>
+            </Link>
+            <Link href="/publish">
+              <a className={currentRoute === "/publish" ? styles.active : ""}>
+                <h3 className={styles.col}>Dashboard</h3>
+              </a>
+            </Link>
           <div>
             <div
               className={styles.btn}

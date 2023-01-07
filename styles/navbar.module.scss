@@ -3,9 +3,9 @@
     color: rgb(10, 10, 10);
     height: 12vh;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display:flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0rem 4rem;
     z-index: 999;
     position: fixed;
@@ -20,8 +20,16 @@
     .address{
       display: none;
     }
+   
   }
-
+  .align {
+    margin-left: 40% !important;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    justify-content: space-between;
+    align-items: center; 
+  }
   .active{
         color: black;
       }
