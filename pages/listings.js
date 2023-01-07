@@ -5,7 +5,7 @@ import web3modal from "web3modal";
 import { ethers } from "ethers";
 import axios from "axios";
 import { contractAddress } from "../address.js";
-import Gum3road from "../artifacts/contracts/Gum3road.sol/Gum3road.json";
+import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
 
 export default function Payout() {
 
@@ -26,10 +26,10 @@ export default function Payout() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
+            OpenBazaar.abi,
             signer
         );
-        const data = await contract.fetchMyListings();
+        const data = await contract.getListings();
 
         const items = await Promise.all(
             data.map(async (i) => {
@@ -76,7 +76,6 @@ export default function Payout() {
     return (
         <>
         <div className={styles.container}>
-            <Dashboard />
             <div className={styles.pageDiv}>
                 <div className={styles.headDiv}>
                     <h2>Items Listed:&nbsp;&nbsp;{myItems.length}</h2>

@@ -1,22 +1,20 @@
-import Dashboard from "../components/Dashboard";
-import styles from "../styles/dashboard.module.scss";
-import { useEffect, useState } from "react";
-import web3modal from "web3modal";
-import { ethers } from "ethers";
-import axios from "axios";
-import { contractAddress } from "../address.js";
-import { saveAs } from "file-saver";
-import Gum3road from "../artifacts/contracts/Gum3road.sol/Gum3road.json";
-import file from "@babel/core/lib/transformation/file/file";
+/* eslint-disable @next/next/no-img-element */
+import styles from "../styles/Inventory.module.css";
+import React, { useEffect, useState } from "react";
+
+import InventoryNftCard from "../components/InventoryNftCard"
+import { NFT__DATA } from "../assets/data/data";
+import { Container, Row, Col } from "reactstrap";
+import "bootstrap"
+
 
 export default function Inventory() {
+
     const [myItems, setMyItems] = useState([]);
     const [loaded, setLoaded] = useState(false);
-
     useEffect(() => {
         myAssets();
     }, []);
-
     async function myAssets() {
         const modal = new web3modal({
             network: "mumbai",
@@ -28,9 +26,10 @@ export default function Inventory() {
         const contract = new ethers.Contract(
             contractAddress,
             Gum3road.abi,
+            OpenBazaar.abi,
             signer
         );
-        const data = await contract.fetchInventory();
+        const data = await contract.getInventory();
         const items = await Promise.all(
             data.map(async (i) => {
                 const tokenUri = await contract.uri(i.tokenId.toString());
@@ -51,13 +50,11 @@ export default function Inventory() {
         setMyItems(items);
         setLoaded(true);
     }
-
     async function Download(_fileName, _fileUrl) {
         const name = _fileName;
         const fileUrl = _fileUrl;
         saveAs(fileUrl, name);
     }
-
     function Card(prop) {
         return (
             <div className={styles.card}>
@@ -82,29 +79,19 @@ export default function Inventory() {
     }
 
     return (
-        <>
-            <div className={styles.container}>
-                <Dashboard />
-                <div className={styles.pageDiv}>
-                    <div className={styles.headDiv}>
-                        <h2>You own {myItems.length} Nft</h2>
-                    </div>
-                    <div className={styles.cardDiv}>
-                        {myItems.map((item, i) => (
-                            <Card
-                                key={i}
-                                cover={item.cover}
-                                name={item.name}
-                                price={item.price}
-                                supplyL={item.supplyL}
-                                tokenId={item.tokenId}
-                                creator={item.creator}
-                                file={item.file}
-                            />
+        <React.Fragment>
+            <section className={styles.trending__title}>
+                <Container>
+                    <Row>
+
+                        {NFT__DATA.slice(0, 2).map((item) => (
+                            <Col key={item.id} className={styles.lg3}>
+                                <InventoryNftCard item={item} />
+                            </Col>
                         ))}
-                    </div>
-                </div>
-            </div>
-        </>
+                    </Row>
+                </Container>
+            </section>
+        </React.Fragment>
     );
 }

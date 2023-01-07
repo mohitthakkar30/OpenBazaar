@@ -11,7 +11,7 @@ export default function Navbar() {
         <div className={styles.nav}>
             <div className={styles.logo}>
                 <Link href="/">
-                    <h2>Gum3road</h2>
+                    <h2>OpenBazaar</h2>
                 </Link>
             </div>
             <div className={styles.rightDiv}>
