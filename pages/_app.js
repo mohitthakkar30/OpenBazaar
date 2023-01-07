@@ -6,7 +6,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 function MyApp({ Component, pageProps }) {
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
     <Component {...pageProps} />
     </>
   )

@@ -6,7 +6,7 @@ import { ethers } from "ethers";
 import axios from "axios";
 import { contractAddress } from "../address.js";
 import { saveAs } from "file-saver";
-import Gum3road from "../artifacts/contracts/Gum3road.sol/Gum3road.json";
+import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
 import file from "@babel/core/lib/transformation/file/file";
 
 export default function Inventory() {
@@ -27,10 +27,10 @@ export default function Inventory() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
+            OpenBazaar.abi,
             signer
         );
-        const data = await contract.fetchInventory();
+        const data = await contract.getInventory();
         const items = await Promise.all(
             data.map(async (i) => {
                 const tokenUri = await contract.uri(i.tokenId.toString());

@@ -1,196 +1,196 @@
-$clr1: #6976d9;
-$Bg: #252525;
-$cardBg: white;
-$cardClr: #000;
+// $clr1: #6976d9;
+// $Bg: #252525;
+// $cardBg: white;
+// $cardClr: #000;
 
-.container{
-    display: flex;
-    flex-direction: row;
-    min-height: 100vh;
-}
-.dashboard{
-    background-color: $Bg;
-    color: white;
-    max-width: 10%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 10vh ;
+// .container{
+//     display: flex;
+//     flex-direction: row;
+//     min-height: 100vh;
+// }
+// .dashboard{
+//     background-color: $Bg;
+//     color: white;
+//     max-width: 10%;
+//     min-height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     padding-top: 10vh ;
 
-    .address{
-        padding: 2rem 10%;
-        align-self: center;
-        font-size: 130%;
-    }
+//     .address{
+//         padding: 2rem 10%;
+//         align-self: center;
+//         font-size: 130%;
+//     }
 
-    .btngrp{
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        padding: 2rem 0;
-        h2{
-            padding: 1.5rem 2.4rem;
-            margin: 0.4rem;
-            font-size: 0.9rem;
-        }
-    }
-}
+//     .btngrp{
+//         display: flex;
+//         flex-direction: column;
+//         align-self: center;
+//         padding: 2rem 0;
+//         h2{
+//             padding: 1.5rem 2.4rem;
+//             margin: 0.4rem;
+//             font-size: 0.9rem;
+//         }
+//     }
+// }
 
-.publish, .pageDiv{
-    background-color: $Bg;
-    color: white;
-    flex: 1;
-    padding-top: 14vh;
-}
+// .publish, .pageDiv{
+//     background-color: $Bg;
+//     color: white;
+//     flex: 1;
+//     padding-top: 14vh;
+// }
 
-.publish{
-    padding-top: 18vh;
-    display: flex;
-    flex-wrap: wrap;
+// .publish{
+//     padding-top: 18vh;
+//     display: flex;
+//     flex-wrap: wrap;
     
-    form{
-        font-size: 0.8rem;
-        width: 45%;
-        height: 90%;
-        background-color:white;
-        border: 1px solid #dedede;
-        border-radius: 0.3rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        margin: 0 auto;
-        padding: 1.4rem 6%;
-        padding-bottom: 1.2rem;
-        border: 2px solid black;
-        box-shadow: 5px 5px gray;
+//     form{
+//         font-size: 0.8rem;
+//         width: 45%;
+//         height: 90%;
+//         background-color:white;
+//         border: 1px solid #dedede;
+//         border-radius: 0.3rem;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-around;
+//         margin: 0 auto;
+//         padding: 1.4rem 6%;
+//         padding-bottom: 1.2rem;
+//         border: 2px solid black;
+//         box-shadow: 5px 5px gray;
 
-        input, select{
-            color: grey;
-            border: 0px solid #d9d9d9;
-            border-bottom: 1px solid #000;
-            box-sizing: border-box;
-            padding: 10px;
-            width: 100%;
-            margin-bottom: 1rem;
+//         input, select{
+//             color: grey;
+//             border: 0px solid #d9d9d9;
+//             border-bottom: 1px solid #000;
+//             box-sizing: border-box;
+//             padding: 10px;
+//             width: 100%;
+//             margin-bottom: 1rem;
             
-        }
+//         }
 
-        input[type="file"]{
-            width: 60%;
-            display: inline;
-        }
+//         input[type="file"]{
+//             width: 60%;
+//             display: inline;
+//         }
 
-        label{
-            color: #3d3d3d;
-            margin-bottom: 0.5rem;
-        }
+//         label{
+//             color: #3d3d3d;
+//             margin-bottom: 0.5rem;
+//         }
 
-        .submitbtn{
-            background-color: $clr1;
-            border: 2px solid black;
-            box-shadow: 5px 5px gray;
-            color: white;
-            font-size: 1.2rem;
-            margin-top: 0.2rem;
+//         .submitbtn{
+//             background-color: $clr1;
+//             border: 2px solid black;
+//             box-shadow: 5px 5px gray;
+//             color: white;
+//             font-size: 1.2rem;
+//             margin-top: 0.2rem;
 
-            &:hover{
-                background-color: #3f53e9;
-                color: white;
-                transition: all .5s ease;
-            }
-        }
-    }
-}
-
-
-
-
-.store{
-    background-color: $Bg;
-    min-height: 100vh;
-    padding-top: 10vh !important;
-    padding: 2rem 5%;
-}
+//             &:hover{
+//                 background-color: #3f53e9;
+//                 color: white;
+//                 transition: all .5s ease;
+//             }
+//         }
+//     }
+// }
 
 
 
-.headDiv{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
 
-.cardDiv{
-    color: black;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0rem 3%;
-}
-
-.card{
-    background-color: $cardBg;
-    width: 21rem;
-    height: 30rem;
-    margin: 3.5%;
-    // padding: 1.6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .imgDiv{
-        height: 65%;
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
+// .store{
+//     background-color: $Bg;
+//     min-height: 100vh;
+//     padding-top: 10vh !important;
+//     padding: 2rem 5%;
+// }
 
 
-    .detailsDiv{
-        color: $cardClr ;
-        font-size: 0.9rem;
-        margin-top: 2.5%;
-        display: flex;
-        flex-direction: row;
-        .nestedDiv{
-            margin: auto;
-            p{
-                margin-bottom: 0.5rem;
-            }
-        }
-        p{
-            font-size: 0.9rem;
-        }
-    }
 
-    .buyDiv{
-        height: 10%;
-        margin-top: 2.5%;
-        width: 100%;
-        background-color: $clr1;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding: 0rem;
+// .headDiv{
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-around;
+// }
 
-        &:hover{
-            background-color: #3f53e9;
-            color: white;
-            transition: all .5s ease;
-        }
-    }
-}
+// .cardDiv{
+//     color: black;
+//     display: flex;
+//     flex-wrap: wrap;
+//     padding: 0rem 3%;
+// }
 
-.noItem{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 4rem;
-}
+// .card{
+//     background-color: $cardBg;
+//     width: 21rem;
+//     height: 30rem;
+//     margin: 3.5%;
+//     // padding: 1.6rem;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
 
-.active{
-    color: $clr1;
-  }
+//     .imgDiv{
+//         height: 65%;
+//         img{
+//             width: 100%;
+//             height: 100%;
+//             object-fit: cover;
+//         }
+//     }
+
+
+//     .detailsDiv{
+//         color: $cardClr ;
+//         font-size: 0.9rem;
+//         margin-top: 2.5%;
+//         display: flex;
+//         flex-direction: row;
+//         .nestedDiv{
+//             margin: auto;
+//             p{
+//                 margin-bottom: 0.5rem;
+//             }
+//         }
+//         p{
+//             font-size: 0.9rem;
+//         }
+//     }
+
+//     .buyDiv{
+//         height: 10%;
+//         margin-top: 2.5%;
+//         width: 100%;
+//         background-color: $clr1;
+//         color: #fff;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         width: 100%;
+//         padding: 0rem;
+
+//         &:hover{
+//             background-color: #3f53e9;
+//             color: white;
+//             transition: all .5s ease;
+//         }
+//     }
+// }
+
+// .noItem{
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     padding: 4rem;
+// }
+
+// .active{
+//     color: $clr1;
+//   }

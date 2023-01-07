@@ -4,7 +4,7 @@ import web3modal from "web3modal";
 import { ethers } from "ethers";
 import axios from "axios";
 import { contractAddress } from "../address.js";
-import Gum3road from "../artifacts/contracts/Gum3road.sol/Gum3road.json";
+import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
 
 export default function Store() {
     const [items, setItems] = useState([]);
@@ -20,7 +20,7 @@ export default function Store() {
         const provider = new ethers.providers.Web3Provider(connection);
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
+            OpenBazaar.abi,
             provider
         );
         const data = await contract.fetchStore();
@@ -46,7 +46,7 @@ export default function Store() {
         setLoaded(true);
     }
 
-    async function buy(item) {
+    async function buyDigitalAsset(item) {
         const modal = new web3modal({
             network: "mumbai",
             cacheProvider: true,
@@ -56,11 +56,11 @@ export default function Store() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road.abi,
+            OpenBazaar.abi,
             signer
         );
         const price = ethers.utils.parseUnits(item.price.toString(), "ether");
-        const transaction = await contract.buy(item.tokenId, {
+        const transaction = await contract.buyDigitalAsset(item.tokenId, {
             value: price,
             gasLimit: 1000000,
         });
@@ -84,8 +84,8 @@ export default function Store() {
                         <p>Token Id: &nbsp;{prop.tokenId}</p>
                     </div>
                 </div>
-                <div className={styles.buyDiv} onClick={() => buy(prop)}>
-                    <p>Buy Now</p>
+                <div className={styles.buyDiv} onClick={() => buyDigitalAsset(prop)}>
+                <p>Buy Digital Assets Here</p>
                 </div>
             </div>
         );
