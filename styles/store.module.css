@@ -1,0 +1,34 @@
+
+.trending__title {
+  background: linear-gradient(141deg, rgba(41,24,57,1) 0%,
+  rgba(149,77,212,1) 33%,
+   rgba(86,49,120,1)
+   62%);
+ background-color: rgba(95, 3, 3, 0);
+ color: rgba(255, 255, 255, 0);
+ flex: 1;
+ padding-top: 14vh;
+  }
+
+  @media (min-width: 992px) {
+  .lg3 {
+    display: inline-flex;
+    width: 22%;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md4 {
+    width: 33.3333%;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .sm6 {
+    width: 50%;
+    margin-bottom: 1.5rem;
+  }
+}
+

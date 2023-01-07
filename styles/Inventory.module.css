@@ -1,0 +1,32 @@
+
+.trending__title {
+   background-color: rgba(95, 3, 3, 0);
+   color: rgba(255, 255, 255, 0);
+   flex: 1;
+   padding-top: 3vh;
+   /* margin-left: -50px; */
+    }
+  
+    @media (min-width: 992px) {
+    .lg3 {
+      display: inline-flex;
+      width: 22%;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .md4 {
+      width: 33.3333%;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 576px) {
+    .sm6 {
+      width: 50%;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  

@@ -76,7 +76,6 @@ export default function Payout() {
     return (
         <>
         <div className={styles.container}>
-            <Dashboard />
             <div className={styles.pageDiv}>
                 <div className={styles.headDiv}>
                     <h2>Items Listed:&nbsp;&nbsp;{myItems.length}</h2>

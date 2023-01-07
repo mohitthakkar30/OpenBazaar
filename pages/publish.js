@@ -8,7 +8,34 @@ import styles from "../styles/dashboard.module.scss";
 import { contractAddress } from "../address.js";
 import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
 
+import Listing from "./listings"
+import Inventory from "./inventory";
+import React, { useContext } from 'react';
+import {
+    Button,
+    Center,
+    Container,
+    Text,
+    VStack,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+  } from '@chakra-ui/react';
+  import 'bootstrap/dist/css/bootstrap.min.css'
+  import { Alert } from '@coreui/bootstrap-react';
+  import { CContainer, CRow, CCol } from '@coreui/bootstrap-react'
+  import CreateNft from "../components/CreateNft"
+  import pkg from 'framesync';
+
+
 export default function Publish() {
+    const { cancelSync, getFrameData } = pkg;
+    const { isOpen, onOpen, onClose } = useDisclosure();
     const [formInput, setFormInput] = useState({
         name: "",
         price: "",
@@ -94,72 +121,49 @@ export default function Publish() {
         router.push("/store");
     }
 
+    function redirect(){
+        router.push("/store");
+    }
+
 
     return (
         <>
-            <div className={styles.container}>
-                <Dashboard />
+            <div className={styles.container}> 
                 <div className={styles.publish}>
-                
-                    <form>
-                        <label>Item Name</label>
-                        <input
-                            name="name"
-                            required
-                            onChange={(e) =>
-                                setFormInput({
-                                    ...formInput,
-                                    name: e.target.value,
-                                })
-                            }
-                        />
-                        <label>Price</label>
-                        <input
-                            name="price"
-                            placeholder="Matic"
-                            required
-                            onChange={(e) =>
-                                setFormInput({
-                                    ...formInput,
-                                    price: e.target.value,
-                                })
-                            }
-                        />
-                        <label>Copies</label>
-                        <input
-                            name="supply"
-                            placeholder="10"
-                            required
-                            onChange={(e) =>
-                                setFormInput({
-                                    ...formInput,
-                                    supply: e.target.value,
-                                })
-                            }
-                        />
-                        <label>Cover image</label>
-                        <input
-                            type="file"
-                            name="cover"
-                            required
-                            onChange={handleFile}
-                        />
-                        <label>Upload file</label>
-                        <input
-                            type="file"
-                            name="file"
-                            required
-                            onChange={handleFile}
-                        />
-                        <input
-                            type="submit"
-                            className={styles.submitbtn}
-                            value="Mint🚀"
-                            onClick={uploadToIpfs}
-                        />
-                    </form>
+                    <CContainer>
+                        <CRow className={styles.row}>
+                        <CCol><h3 style={{color:"black"}}>Created NFTs</h3></CCol>
+                        <div className={styles.vertical}></div>
+                        <CCol><h3 style={{color:"black"}}>Bought NFTs</h3></CCol>
+                        </CRow>
+                        <CRow className={styles.row}>
+                        <CCol><Listing/>
+                        <Container className={styles.modal} py='6rem' pr='10rem' maxW='full'>
+                                <Modal size={'3xl'} isOpen={isOpen} onClose={onClose}>
+                                    <ModalOverlay />
+                                    <ModalContent rounded='3xl'>
+                                        <ModalHeader color='black'>Create NFT</ModalHeader>
+                                        <ModalCloseButton color='black' />
+                                        <ModalBody>
+                                            <CreateNft />
+                                        </ModalBody>
+                                    </ModalContent>
+                                </Modal>
+                                    <Center gap='2rem' flexDir={'column'} mx={'auto'}>
+                                        <Button type="button" class="btn btn-primary" onClick={onOpen}>Create NFT</Button>
+                                    </Center>
+                            </Container>
+                            </CCol>
+                            <div className={styles.vertical}></div>
+                            <CCol><Inventory/>
+                            <Center gap='2rem' flexDir={'column'} mx={'auto'} mt='25%'>
+                                        <Button type="button" style={{width:'17%'}} class="btn btn-primary" onClick={redirect}>Store</Button>
+                                    </Center>
+                            </CCol>
+                            </CRow>
+                    </CContainer>
+
                 </div>
             </div>
-        </>
-    );
+        </>);
 }

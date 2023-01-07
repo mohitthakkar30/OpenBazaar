@@ -9,14 +9,14 @@ import { saveAs } from "file-saver";
 import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
 import file from "@babel/core/lib/transformation/file/file";
 
+
 export default function Inventory() {
+
     const [myItems, setMyItems] = useState([]);
     const [loaded, setLoaded] = useState(false);
-
     useEffect(() => {
         myAssets();
     }, []);
-
     async function myAssets() {
         const modal = new web3modal({
             network: "mumbai",
@@ -51,13 +51,11 @@ export default function Inventory() {
         setMyItems(items);
         setLoaded(true);
     }
-
     async function Download(_fileName, _fileUrl) {
         const name = _fileName;
         const fileUrl = _fileUrl;
         saveAs(fileUrl, name);
     }
-
     function Card(prop) {
         return (
             <div className={styles.card}>
@@ -82,29 +80,19 @@ export default function Inventory() {
     }
 
     return (
-        <>
-            <div className={styles.container}>
-                <Dashboard />
-                <div className={styles.pageDiv}>
-                    <div className={styles.headDiv}>
-                        <h2>You own {myItems.length} Nft</h2>
-                    </div>
-                    <div className={styles.cardDiv}>
-                        {myItems.map((item, i) => (
-                            <Card
-                                key={i}
-                                cover={item.cover}
-                                name={item.name}
-                                price={item.price}
-                                supplyL={item.supplyL}
-                                tokenId={item.tokenId}
-                                creator={item.creator}
-                                file={item.file}
-                            />
+        <React.Fragment>
+            <section className={styles.trending__title}>
+                <Container>
+                    <Row>
+
+                        {NFT__DATA.slice(0, 2).map((item) => (
+                            <Col key={item.id} className={styles.lg3}>
+                                <InventoryNftCard item={item} />
+                            </Col>
                         ))}
-                    </div>
-                </div>
-            </div>
-        </>
+                    </Row>
+                </Container>
+            </section>
+        </React.Fragment>
     );
 }
