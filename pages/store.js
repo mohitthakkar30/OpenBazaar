@@ -29,7 +29,6 @@ export default function Store() {
           OpenBazaar.abi,
           provider
       );
-      try{
       const data = await contract.getStore();
       const items = await Promise.all(
           data.map(async (i) => {
@@ -51,10 +50,6 @@ export default function Store() {
           console.log(items);
           setItems(items);
       setLoaded(true);
-        }
-        catch(e){
-            console.log(e);
-        }
   }
 
   async function buyDigitalAsset(item) {
