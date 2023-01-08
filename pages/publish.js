@@ -24,8 +24,7 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Alert } from "@coreui/bootstrap-react";
+
 import { CContainer, CRow, CCol } from "@coreui/bootstrap-react";
 import CreateNft from "../components/CreateNft";
 import pkg from "framesync";

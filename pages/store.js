@@ -7,7 +7,7 @@ import web3modal from "web3modal";
 import { ethers } from "ethers";
 import axios from "axios";
 import { contractAddress } from "../address.js";
-import "bootstrap"
+
 import OpenBazaar from "../artifacts/contracts/OpenBazaar.sol/OpenBazaar.json";
 import Navbar from "../components/Navbar";
 
