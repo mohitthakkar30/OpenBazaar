@@ -32,6 +32,7 @@ export default function Inventory() {
             OpenBazaar.abi,
             signer
         );
+        try{
         const data = await contract.getInventory();
         const items = await Promise.all(
             data.map(async (i) => {
@@ -50,8 +51,14 @@ export default function Inventory() {
                 return item;
             })
         );
+       
         setMyItems(items);
         setLoaded(true);
+    }
+    catch(e){
+    
+        console.log(e);
+    }
     }
     async function Download(_fileName, _fileUrl) {
         const name = _fileName;

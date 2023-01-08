@@ -46,7 +46,7 @@ export default function Publish() {
 
   const projectId = process.env.NEXT_PUBLIC_projectId;
   const projectSecret = process.env.NEXT_PUBLIC_projectSecret;
-  const ipfsGateway = "https://anshs-gum3road.infura-ipfs.io/ipfs/";
+  const ipfsGateway = "https://collab-nft.infura-ipfs.io/ipfs/";
 
   const auth =
     "Basic " + Buffer.from(projectId + ":" + projectSecret).toString("base64");

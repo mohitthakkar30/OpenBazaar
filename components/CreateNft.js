@@ -5,7 +5,7 @@ import { useState } from "react";
 import web3modal from "web3modal";
 import styles from "../styles/dashboard.module.scss";
 import { contractAddress } from "../address.js";
-import Gum3road from "../Gum3road.json";
+import OpenBazaar from "../OpenBazaar.json";
 import { Controller, useForm } from 'react-hook-form';
 import {
   Center,
@@ -42,7 +42,7 @@ export default function CreateNft() {
 
     const projectId = process.env.NEXT_PUBLIC_projectId
     const projectSecret = process.env.NEXT_PUBLIC_projectSecret
-    const ipfsGateway = "https://anshs-gum3road.infura-ipfs.io/ipfs/"
+    const ipfsGateway = "https://collab-nft.infura-ipfs.io/ipfs/"
 
     const auth =
         "Basic " +
@@ -98,7 +98,7 @@ export default function CreateNft() {
         const signer = provider.getSigner();
         const contract = new ethers.Contract(
             contractAddress,
-            Gum3road,
+            OpenBazaar,
             signer
         );
         const url = await metadata();

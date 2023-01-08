@@ -12,10 +12,9 @@ This is a decentralized version of the [Gumroad.com](https://gumroad.com/). This
 <br/>
 
 ### Built with
-- Sass
 - Next.js
 - Solidity
-- Ether.js
+- Ethers.js
 
 <br/>
 
@@ -23,7 +22,7 @@ This is a decentralized version of the [Gumroad.com](https://gumroad.com/). This
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/anshss/PolygonBUIDLIT.git
+   git clone https://github.com/mohitthakkar30/OpenBazaar.git
    
    ```
 2. Install NPM packages
@@ -41,8 +40,7 @@ This is a decentralized version of the [Gumroad.com](https://gumroad.com/). This
 
 [Video explanation](https://youtu.be/jbozgxCEwqo)
 <br/>
-[Polygonscan contract link](https://mumbai.polygonscan.com/address/0x6112C81f94A759EdAD39B1523C685c0b883c3C9a)
+[Polygonscan contract link](https://mumbai.polygonscan.com/address/0xf668B239C04d5c15B6584063185929F9B8DF9A1F)
 
 <br/>
 <br/>
-(edit: A readme commit has been made after the hackathon has ended)

@@ -28,6 +28,7 @@ export default function Payout() {
             OpenBazaar.abi,
             signer
         );
+        try{
         const data = await contract.getListings();
 
         const items = await Promise.all(
@@ -47,6 +48,10 @@ export default function Payout() {
         );
         setMyItems(items);
         setLoaded(true);
+        }
+        catch(e){
+            console.log(e);
+        }
     }
 
     function Card(prop) {
