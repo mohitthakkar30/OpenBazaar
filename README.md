@@ -38,7 +38,7 @@ This is a decentralized version of the [Gumroad.com](https://gumroad.com/). This
 
 <br/>
 
-[Video explanation](https://youtu.be/jbozgxCEwqo)
+
 <br/>
 [Polygonscan contract link](https://mumbai.polygonscan.com/address/0xf668B239C04d5c15B6584063185929F9B8DF9A1F)
 
