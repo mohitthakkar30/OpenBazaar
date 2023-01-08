@@ -45,7 +45,7 @@ export default function First() {
     console.log("useeffect===============>");
     if (address) {
       router.push("/publish");
-      localStorage.clear();
+      // localStorage.clear();
     }
  
   }, [address]);
@@ -58,7 +58,7 @@ export default function First() {
             <h1 className="linear-wipe">OPENBAZAAR</h1>
             <p>
             OpenBazaar is a decentralized, peer-to-peer marketplace that enables users to buy and 
-            sell goods and services directly with one another without the need for intermediaries 
+            sell digital assets directly with one another without the need for intermediaries 
             or fees.
             </p>
             <div
