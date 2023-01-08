@@ -12,7 +12,6 @@ import React, { useContext } from "react";
 import {
   Button,
   Center,
-  Container,
   Text,
   VStack,
   Modal,
@@ -25,7 +24,8 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-import { CContainer, CRow, CCol } from "@coreui/bootstrap-react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "reactstrap";
 import CreateNft from "../components/CreateNft";
 import pkg from "framesync";
 import Navbar from "../components/Navbar";
@@ -126,18 +126,18 @@ export default function Publish() {
 
       <div className={styles.container}>
         <div className={styles.publish}>
-          <CContainer>
-            <CRow className={styles.row}>
-              <CCol>
+          <Container>
+            <Row className={styles.row}>
+              <Col>
                 <h3 style={{ color: "black" }}>Created NFTs</h3>
-              </CCol>
+              </Col>
               <div className={styles.vertical}></div>
-              <CCol>
+              <Col>
                 <h3 style={{ color: "black" }}>Bought NFTs</h3>
-              </CCol>
-            </CRow>
-            <CRow className={styles.row}>
-              <CCol>
+              </Col>
+            </Row>
+            <Row className={styles.row}>
+              <Col>
                 <Listing />
                 <Container
                   className={styles.modal}
@@ -165,9 +165,9 @@ export default function Publish() {
                     </Button>
                   </Center>
                 </Container>
-              </CCol>
+              </Col>
               <div className={styles.vertical}></div>
-              <CCol>
+              <Col>
                 <Inventory />
                 <Center gap="2rem" flexDir={"column"} mx={"auto"} mt="25%">
                   <Button
@@ -179,9 +179,9 @@ export default function Publish() {
                     Store
                   </Button>
                 </Center>
-              </CCol>
-            </CRow>
-          </CContainer>
+              </Col>
+            </Row>
+          </Container>
         </div>
       </div>
     </>

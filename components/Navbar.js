@@ -43,13 +43,13 @@ export default function Navbar() {
   const currentRoute = router.pathname;
   const { address, isConnecting, isDisconnected } = useAccount();
 
-  useEffect(() => {
-    console.log("useeffect===============>");
-    if (address) {
-      router.push("/publish");
-      localStorage.clear();
-    }
-  }, [address]);
+  // useEffect(() => {
+  //   console.log("useeffect===============>");
+  //   if (address) {
+  //     router.push("/publish");
+  //     localStorage.clear();
+  //   }
+  // }, [address]);
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains} theme={myTheme}>
