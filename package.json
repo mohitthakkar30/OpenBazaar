@@ -21,6 +21,7 @@
     "@openzeppelin/contracts": "^4.7.2",
     "@rainbow-me/rainbowkit": "^0.8.1",
     "axios": "^0.27.2",
+    "bootstrap": "^5.2.3",
     "chai": "^4.3.6",
     "dotenv": "^16.0.1",
     "ethereum-waffle": "^3.4.4",
